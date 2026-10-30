@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README-agt</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">:root {
+--brand: #2b0a8c;
+--accent: #e6007e;
+--ink: #1f2430;
+--muted: #667085;
+--line: #e4e7ec;
+--surface: #f7f7fb;
+}
+* {
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+margin: 0 auto;
+max-width: 1120px;
+padding: 50px;
+color: var(--ink);
+background: #ffffff;
+font-family: "Segoe UI", Arial, sans-serif;
+line-height: 1.65;
+}
+a {
+color: var(--brand);
+}
+a:hover {
+color: var(--accent);
+}
+h1 {
+margin-top: 2.7rem;
+padding-bottom: 0.35rem;
+border-bottom: 2px solid var(--line);
+}
+h2 {
+margin-top: 2.4rem;
+padding-bottom: 0.3rem;
+border-bottom: 1px solid var(--line);
+}
+h3,
+h4,
+h5,
+h6 {
+margin-top: 2rem;
+}
+img {
+display: block;
+max-width: 100%;
+height: auto;
+margin: 1rem auto 0.35rem;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1.25rem 0;
+}
+th,
+td {
+border: 1px solid var(--line);
+padding: 0.7rem;
+vertical-align: top;
+}
+th {
+background: var(--surface);
+text-align: left;
+}
+blockquote {
+margin: 1.2rem 0;
+padding: 0.7rem 1rem;
+border-left: 4px solid var(--brand);
+background: var(--surface);
+}
+code {
+font-family: Consolas, "Courier New", monospace;
+}
+pre {
+overflow-x: auto;
+padding: 1rem;
+border-radius: 8px;
+background: var(--surface);
+}
+
+body > h1:first-of-type {
+margin: -50px calc(50% - 50vw) 3rem;
+padding: 3.5rem max(50px, calc((100vw - 1120px) / 2));
+border: 0;
+background: linear-gradient(135deg, #250777, #3e16a3);
+color: #ffffff;
+font-size: clamp(2rem, 5vw, 3.5rem);
+line-height: 1.1;
+}
+@media (max-width: 640px) {
+body {
+padding: 20px;
+}
+body > h1:first-of-type {
+margin-top: -20px;
+padding: 2.5rem 20px;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="agt-periodic-one-shot">AGT (Periodic, One-shot)</h1>
+<h2 id="overview">Overview</h2>
+<p>This Software Building Block (SBB) demonstrates the Renesas
+Asynchronous General Purpose Timer (AGT) in <strong>One-Shot</strong>
+and <strong>Periodic</strong> modes on the following reference
+boards:</p>
+<ul>
+<li>FPB-RA2E3</li>
+<li>FPB-RA4E2</li>
+<li>FPB-RA6E2</li>
+<li>FPB-RA8E1</li>
+</ul>
+<p>The reference application accepts timer periods from a serial
+terminal. AGT channel 0 operates in One-Shot mode. When that timer
+expires, its callback starts AGT channel 1 in Periodic mode. The
+periodic timer then expires at the user-selected interval and toggles an
+on-board LED.</p>
+<h2 id="use-case-demonstrated-by-this-sbb">Use case demonstrated by this
+SBB</h2>
+<p>The SBB demonstrates how two AGT instances can be combined to
+sequence timer-driven behavior:</p>
+<ol type="1">
+<li>Configure one AGT instance for One-Shot operation.</li>
+<li>Configure a second AGT instance for Periodic operation.</li>
+<li>Set both timer periods from user-selected millisecond values.</li>
+<li>Start the One-Shot timer.</li>
+<li>Start the Periodic timer from the One-Shot timer callback when the
+One-Shot period expires.</li>
+<li>Toggle an on-board LED from the Periodic timer callback.</li>
+<li>Query and stop active timers from the application.</li>
+</ol>
+<p>The reference application accepts One-Shot and Periodic period values
+from <strong>1 to 2000 ms</strong>.</p>
+<h2 id="supported-reference-boards">Supported reference boards</h2>
+<p>This documentation covers only:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Board</th>
+<th>Reference application notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPB-RA2E3</td>
+<td>Close <strong>E25, E28, E46, and E47</strong> to use J-Link OB VCOM
+for the serial terminal.</td>
+</tr>
+<tr>
+<td>FPB-RA4E2</td>
+<td>No additional board-specific hardware connection is identified in
+the supplied <code>readme.txt</code>.</td>
+</tr>
+<tr>
+<td>FPB-RA6E2</td>
+<td>No additional board-specific hardware connection is identified in
+the supplied <code>readme.txt</code>.</td>
+</tr>
+<tr>
+<td>FPB-RA8E1</td>
+<td>Open jumpers <strong>J6 and J9</strong> to use the on-board debug
+functionality.</td>
+</tr>
+</tbody>
+</table>
+<p>For all four boards, connect the board’s USB debug port to the host
+PC using the appropriate USB cable for programming and debugging.</p>
+<h2 id="how-the-demonstration-works">How the demonstration works</h2>
+<p>At startup, the reference application:</p>
+<ol type="1">
+<li>Initializes the UART console.</li>
+<li>Displays the SBB and FSP version information.</li>
+<li>Opens both AGT timer instances.</li>
+<li>Requests the One-Shot timer period.</li>
+<li>Requests the Periodic timer period.</li>
+<li>Obtains each timer’s configured clock frequency using
+<code>agt_info_get()</code>.</li>
+<li>Converts each millisecond period to raw timer counts using:</li>
+</ol>
+<pre class="text"><code>period_counts = (time_period_ms * clock_frequency) / 1000</code></pre>
+<ol start="8" type="1">
+<li>Programs the calculated periods into the two AGT instances.</li>
+<li>Waits for terminal input to start or stop timer operation.</li>
+</ol>
+<p>When timer operation is started, the application starts the One-Shot
+AGT instance. When its cycle ends,
+<code>one_shot_timer_callback()</code> starts the Periodic AGT instance
+unless that timer is already running. Each cycle-end event from the
+Periodic timer causes <code>periodic_timer_callback()</code> to toggle
+the first BSP-defined on-board LED.</p>
+<h2 id="sbb-core-code">SBB core code</h2>
+<p>The reusable SBB implementation is contained in:</p>
+<ul>
+<li><code>agt_ep.c</code></li>
+<li><code>agt_ep.h</code></li>
+</ul>
+<p>The SBB core wraps the FSP AGT operations required by the application
+and contains the timer callbacks used to sequence the One-Shot and
+Periodic timers.</p>
+<p>Its responsibilities are:</p>
+<ul>
+<li>Open the One-Shot and Periodic AGT instances.</li>
+<li>Start an AGT instance.</li>
+<li>Retrieve AGT configuration/status information.</li>
+<li>Change an AGT period.</li>
+<li>Stop an AGT instance.</li>
+<li>Close both AGT instances.</li>
+<li>Start the Periodic timer when the One-Shot timer expires.</li>
+<li>Toggle the board LED when the Periodic timer expires.</li>
+<li>Report callback failures to the application through
+<code>g_error_flag</code>.</li>
+</ul>
+<h2 id="reusable-sbb-code-versus-demoreference-application">Reusable SBB
+code versus demo/reference application</h2>
+<h3 id="reusable-sbb-code">Reusable SBB code</h3>
+<p><code>agt_ep.c</code> and <code>agt_ep.h</code> form the reusable
+timer-facing layer.</p>
+<p>They expose functions that wrap the underlying FSP <code>R_AGT</code>
+interface and contain the callbacks that implement the demonstrated
+timer relationship.</p>
+<h3 id="demoreference-application-code">Demo/reference application
+code</h3>
+<p><code>agt_example_app.c</code> and <code>agt_example_app.h</code>
+implement the interactive reference application.</p>
+<p>The reference application is responsible for:</p>
+<ul>
+<li>UART console initialization.</li>
+<li>Displaying SBB and FSP version information.</li>
+<li>Accepting timer periods from the terminal.</li>
+<li>Validating the demo’s <code>1..2000 ms</code> input range.</li>
+<li>Converting milliseconds to timer counts using the timer’s configured
+clock frequency.</li>
+<li>Starting or stopping timer operation in response to terminal
+input.</li>
+<li>Displaying timer state information.</li>
+<li>Handling errors and entering a breakpoint trap when an operation
+fails.</li>
+</ul>
+<p>The reference application exposes a single entry point:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> agt_example_app_run<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>The source states that this function is called by
+<code>hal_entry.c</code>.</p>
+<p>The UART user interface, input parsing, printed messages, interactive
+start/stop behavior, and <code>1..2000 ms</code> input policy belong to
+the reference application rather than the general AGT wrapper API.</p>
+<h2 id="public-functions-to-look-at-first">Public functions to look at
+first</h2>
+<h3 id="agt_init"><code>agt_init()</code></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t agt_init<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Opens the configured One-Shot timer (<code>g_timer_one_shot</code>)
+and Periodic timer (<code>g_timer_periodic</code>). This is the logical
+starting point for understanding how the two FSP AGT instances are
+brought into use.</p>
+<h3 id="agt_period_set"><code>agt_period_set()</code></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t agt_period_set<span class="op">(</span>timer_ctrl_t <span class="op">*</span> <span class="dt">const</span> p_ctrl<span class="op">,</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         <span class="dt">uint32_t</span> <span class="dt">const</span> period_counts<span class="op">);</span></span></code></pre></div>
+<p>Updates the period of the selected AGT instance using
+<code>R_AGT_PeriodSet()</code>.</p>
+<h3 id="agt_start"><code>agt_start()</code></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t agt_start<span class="op">(</span>timer_ctrl_t <span class="op">*</span> <span class="dt">const</span> p_ctrl<span class="op">);</span></span></code></pre></div>
+<p>Starts the selected timer using <code>R_AGT_Start()</code>.</p>
+<h3 id="agt_status_get"><code>agt_status_get()</code></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t agt_status_get<span class="op">(</span>timer_ctrl_t <span class="op">*</span> <span class="dt">const</span> p_ctrl<span class="op">,</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                         timer_status_t <span class="op">*</span> <span class="dt">const</span> p_status<span class="op">);</span></span></code></pre></div>
+<p>Retrieves the current timer state and counter value.</p>
+<h3 id="agt_info_get"><code>agt_info_get()</code></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t agt_info_get<span class="op">(</span>timer_ctrl_t <span class="op">*</span> <span class="dt">const</span> p_ctrl<span class="op">,</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                       timer_info_t <span class="op">*</span> <span class="dt">const</span> p_info<span class="op">);</span></span></code></pre></div>
+<p>Retrieves timer information. The reference application uses the
+returned <code>clock_frequency</code> to convert the requested
+millisecond period into timer counts.</p>
+<h3 id="agt_stop"><code>agt_stop()</code></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t agt_stop<span class="op">(</span>timer_ctrl_t <span class="op">*</span> <span class="dt">const</span> p_ctrl<span class="op">);</span></span></code></pre></div>
+<p>Stops the selected timer.</p>
+<h3 id="agt_deinit"><code>agt_deinit()</code></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> agt_deinit<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Closes the One-Shot and Periodic AGT instances if they are open.</p>
+<h3 id="timer-callbacks">Timer callbacks</h3>
+<p>Two callbacks implement the demonstrated behavior:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> one_shot_timer_callback<span class="op">(</span>timer_callback_args_t <span class="op">*</span> p_args<span class="op">);</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> periodic_timer_callback<span class="op">(</span>timer_callback_args_t <span class="op">*</span> p_args<span class="op">);</span></span></code></pre></div>
+<p><code>one_shot_timer_callback()</code> reacts to
+<code>TIMER_EVENT_CYCLE_END</code>, checks whether the Periodic timer is
+already counting, and starts it when necessary.</p>
+<p><code>periodic_timer_callback()</code> reacts to
+<code>TIMER_EVENT_CYCLE_END</code> and toggles the first LED defined by
+the BSP LED configuration through <code>R_IOPORT_PinWrite()</code>.</p>
+<h2 id="reference-configuration-assumptions">Reference configuration
+assumptions</h2>
+<p>The supplied code assumes two generated AGT instances:</p>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Generated control object</th>
+<th>Generated configuration object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One-Shot timer</td>
+<td><code>g_timer_one_shot_ctrl</code></td>
+<td><code>g_timer_one_shot_cfg</code></td>
+</tr>
+<tr>
+<td>Periodic timer</td>
+<td><code>g_timer_periodic_ctrl</code></td>
+<td><code>g_timer_periodic_cfg</code></td>
+</tr>
+</tbody>
+</table>
+<p>The following additional assumptions are visible in the supplied
+implementation:</p>
+<ul>
+<li>The One-Shot and Periodic behaviors are established by the generated
+FSP configurations supplied to <code>R_AGT_Open()</code>.</li>
+<li>Timer periods are programmed as raw counts after reading
+<code>clock_frequency</code> from each timer with
+<code>R_AGT_InfoGet()</code>.</li>
+<li>The reference application’s accepted period is greater than
+<code>0</code> and no greater than <code>2000</code> ms.</li>
+<li>The Periodic callback uses the first LED in
+<code>g_bsp_leds.p_leds[]</code>.</li>
+<li>Callback processing depends on AGT cycle-end events.</li>
+<li>The reference application uses a UART-backed standard I/O
+console.</li>
+<li>The terminal-input buffer is 16 bytes; the supplied README states
+that input should not exceed 15 bytes.</li>
+</ul>
+<p>The supplied files do not state the exact AGT source clock, divider,
+interrupt priority, or timer-channel configuration for each of the four
+reference boards. Those settings therefore need to be verified in the
+generated FSP configuration of the relevant board project.</p>
+<h2 id="what-must-change-when-adapting-the-sbb">What must change when
+adapting the SBB?</h2>
+<p>The reusable API does not hard-code a board-specific timer frequency.
+Instead, the reference application queries each timer’s actual
+<code>clock_frequency</code> and derives raw counts from it. When
+integrating the SBB into another board or application, the generated FSP
+configuration and application assumptions below must be reviewed.</p>
+<h3 id="timer-configuration">Timer configuration</h3>
+<p>The project must provide the generated control/configuration objects
+expected by the SBB and configure one timer for One-Shot operation and
+one for Periodic operation if the demonstrated behavior is to be
+retained.</p>
+<p>The supplied implementation specifically references:</p>
+<ul>
+<li><code>g_timer_one_shot_ctrl</code></li>
+<li><code>g_timer_one_shot_cfg</code></li>
+<li><code>g_timer_periodic_ctrl</code></li>
+<li><code>g_timer_periodic_cfg</code></li>
+</ul>
+<h3 id="clocks-and-timing">Clocks and timing</h3>
+<p>The example obtains each AGT instance’s clock frequency at runtime
+and calculates raw counts from the requested milliseconds. If the AGT
+clock source or divider changes, the value returned through
+<code>R_AGT_InfoGet()</code> is therefore significant to the period
+calculation.</p>
+<p>The supplied files do not specify clock-tree settings for FPB-RA2E3,
+FPB-RA4E2, FPB-RA6E2, or FPB-RA8E1. Refer to the generated project
+configuration when validating those settings.</p>
+<h3 id="led-and-pins">LED and pins</h3>
+<p>The Periodic callback writes to:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>g_bsp_leds<span class="op">.</span>p_leds<span class="op">[</span>RESET_FLAG<span class="op">]</span></span></code></pre></div>
+<p>where <code>RESET_FLAG</code> is <code>0</code>. The target BSP
+therefore needs an appropriate LED definition if this demonstration
+behavior is retained. If the target application does not use an LED, the
+Periodic callback behavior should be replaced by the application’s
+required periodic action.</p>
+<h3 id="uart-and-middleware">UART and middleware</h3>
+<p>The reference application depends on
+<code>console/uart_console.h</code> and standard I/O for its interactive
+demonstration. If the SBB is integrated without this demo, the terminal
+user interface does not need to be retained unless the application
+requires it.</p>
+<p>For FPB-RA2E3, the supplied README explicitly requires E25, E28, E46,
+and E47 to be closed when J-Link OB VCOM is used for the serial
+terminal.</p>
+<h3 id="memory-and-task-priorities">Memory and task priorities</h3>
+<p>The supplied source and README do not specify memory requirements,
+stack/heap sizing, an RTOS, or task priorities. No board-specific memory
+or scheduling requirement can therefore be stated from these files.
+These aspects must be evaluated in the context of the application that
+integrates the SBB.</p>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="renesas-fsp-and-bsp">Renesas FSP and BSP</h3>
+<p>The implementation directly uses:</p>
+<ul>
+<li><code>R_AGT_Open()</code></li>
+<li><code>R_AGT_Start()</code></li>
+<li><code>R_AGT_InfoGet()</code></li>
+<li><code>R_AGT_PeriodSet()</code></li>
+<li><code>R_AGT_StatusGet()</code></li>
+<li><code>R_AGT_Stop()</code></li>
+<li><code>R_AGT_Close()</code></li>
+<li><code>R_IOPORT_PinWrite()</code></li>
+<li><code>R_FSP_VersionGet()</code> in the reference application</li>
+<li>Types and generated configuration exposed through
+<code>hal_data.h</code></li>
+<li>BSP LED information through <code>g_bsp_leds</code></li>
+</ul>
+<h3 id="consolereference-application">Console/reference application</h3>
+<p>The demo also uses:</p>
+<ul>
+<li><code>console/uart_console.h</code></li>
+<li><code>uart_console_init()</code></li>
+<li><code>uart_console_has_char()</code></li>
+<li><code>uart_console_flush()</code></li>
+<li>Standard C library functions including <code>printf()</code>,
+<code>fgets()</code>, <code>atoi()</code>, <code>memset()</code>, and
+<code>strcspn()</code></li>
+</ul>
+<h3 id="hardware-resources">Hardware resources</h3>
+<p>The demonstrated implementation requires:</p>
+<ul>
+<li>Two configured AGT instances</li>
+<li>An on-board LED for the supplied Periodic callback behavior</li>
+<li>USB debug connection</li>
+<li>J-Link On-Board serial/VCOM when using the supplied terminal-based
+demonstration</li>
+</ul>
+<h2 id="serial-terminal-configuration">Serial terminal
+configuration</h2>
+<p>The supplied README specifies:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed</td>
+<td>115200</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Stop bits</td>
+<td>1 bit</td>
+</tr>
+<tr>
+<td>Flow control</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>Port provided by J-Link On-Board</td>
+</tr>
+</tbody>
+</table>
+<p>For Tera Term, it additionally specifies:</p>
+<ul>
+<li>Receive newline: <strong>CR</strong></li>
+<li>Transmit newline: <strong>CR</strong></li>
+<li><strong>Local echo</strong> enabled</li>
+</ul>
+<p>The supplied README states that terminal data should not exceed 15
+bytes and that operation is not guaranteed for unsupported user-input
+forms such as floating-point or special-character input.</p>
+<h2 id="demonstrated-behavior-and-performance">Demonstrated behavior and
+performance</h2>
+<h3 id="demonstrated-behavior">Demonstrated behavior</h3>
+<p>The supplied implementation demonstrates:</p>
+<ul>
+<li>Opening two AGT instances.</li>
+<li>Configuring timer periods after initialization.</li>
+<li>Converting millisecond periods to timer counts using each timer’s
+reported clock frequency.</li>
+<li>Starting and stopping timers.</li>
+<li>Reading timer status.</li>
+<li>One-Shot expiration initiating Periodic operation.</li>
+<li>Detecting that the Periodic timer is already running.</li>
+<li>Periodically toggling an on-board LED from the Periodic timer
+callback.</li>
+<li>Reporting callback errors to the foreground application through a
+shared error flag.</li>
+</ul>
+<h3 id="demonstrated-input-range">Demonstrated input range</h3>
+<p>The reference application accepts <strong>1 to 2000 ms</strong> for
+both the One-Shot and Periodic timer periods.</p>
+<h3 id="performance-measurements">Performance measurements</h3>
+<p>The supplied source and README provide <strong>no measured timing
+accuracy, interrupt latency, jitter, CPU utilization, memory footprint,
+maximum event rate, or other benchmark data</strong>. The
+<code>1..2000 ms</code> range is an application input constraint, not a
+stated measurement of AGT hardware performance.</p>
+<p>Accordingly, this SBB should be treated as a functional reference for
+AGT One-Shot/Periodic operation rather than a performance benchmark.</p>
+<h2 id="file-ownership-and-modification-guidance">File ownership and
+modification guidance</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>File</th>
+<th>Classification</th>
+<th>Guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>agt_ep.c</code></td>
+<td>Reusable SBB implementation</td>
+<td>Change when intentionally modifying the reusable AGT behavior or
+callback implementation.</td>
+</tr>
+<tr>
+<td><code>agt_ep.h</code></td>
+<td>Reusable SBB interface</td>
+<td>Change when modifying the reusable interface, constants, or
+integration contract.</td>
+</tr>
+<tr>
+<td><code>agt_example_app.c</code></td>
+<td>Demo/reference application</td>
+<td>Appropriate place for demo-specific UI, input, sequencing, and
+presentation changes.</td>
+</tr>
+<tr>
+<td><code>agt_example_app.h</code></td>
+<td>Demo/reference application interface</td>
+<td>Contains the demo entry point, version, banner, information text,
+and user guide strings.</td>
+</tr>
+<tr>
+<td><code>readme.txt</code></td>
+<td>Existing example documentation</td>
+<td>Source documentation for board setup, hardware requirements, and
+serial-terminal instructions.</td>
+</tr>
+</tbody>
+</table>
+<p>The supplied source includes <code>hal_data.h</code> and references
+generated FSP objects, but the supplied file set does not enumerate the
+generated files themselves. Generated FSP configuration should therefore
+remain separate from the hand-maintained reusable SBB and example
+application layers.</p>
+<h2 id="adopting-a-newer-sbb-release-after-local-modifications">Adopting
+a newer SBB release after local modifications</h2>
+<p>If <code>agt_ep.c</code> or <code>agt_ep.h</code> are changed
+locally, upgrading to a newer SBB may require reconciling local changes
+with changes made in the newer version.</p>
+<p>To make future adoption easier:</p>
+<ul>
+<li>Keep application-specific UART interaction and user-interface policy
+in the reference/application layer rather than moving those concerns
+into <code>agt_ep.c</code>.</li>
+<li>Keep local changes to the reusable SBB explicit and narrowly
+scoped.</li>
+<li>Preserve the distinction between generated FSP configuration and
+hand-maintained SBB source.</li>
+<li>When adopting a newer SBB release, compare the new
+<code>agt_ep.c</code> and <code>agt_ep.h</code> against the locally
+modified versions before carrying customizations forward.</li>
+<li>Revalidate timer configuration, clock-derived period calculations,
+callbacks, interrupt behavior, board LED setup, and the
+application-specific integration after merging changes.</li>
+</ul>
+<p>The supplied files do not define a source migration, compatibility,
+or automated upgrade mechanism. Compatibility with later SBB versions
+should therefore be validated when an update is adopted.</p>
+<h2 id="recommended-reading-order">Recommended reading order</h2>
+<p>For a customer evaluating the SBB:</p>
+<ol type="1">
+<li><strong><code>agt_ep.h</code></strong>: understand the reusable API
+and integration-facing definitions.</li>
+<li><strong><code>agt_ep.c</code></strong>: see the FSP AGT wrappers and
+One-Shot/Periodic callbacks.</li>
+<li><strong><code>agt_example_app.c</code></strong>: see how timer
+periods are obtained, converted to counts, configured, and exercised
+interactively.</li>
+<li><strong><code>agt_example_app.h</code></strong>: see the reference
+application’s entry point and displayed information.</li>
+<li><strong><code>readme.txt</code></strong>: review the original board
+and terminal setup requirements.</li>
+</ol>
+<p>This separation allows the timer building block to be understood
+independently of the UART-driven demonstration used to exercise it.</p>
+</body>
+</html>
